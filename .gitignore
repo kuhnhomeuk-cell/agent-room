@@ -1,0 +1,23 @@
+
+# Secret-named files and local agent notes stay out of git.
+.env*
+*.pem
+*.key
+*credentials*
+client_secret*.json
+*token*.json
+.mcp.json
+*.mcp.json
+.mcp.local.json
+.planning/
+STATE.md
+CLAUDE.md
+AGENTS.md
+
+# --- Agent Room runtime (your chats and logs stay on your machine) ---
+rooms/
+logs/
+attachments/
+__pycache__/
+.pytest_cache/
+.DS_Store

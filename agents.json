@@ -1,0 +1,61 @@
+{
+  "_help": "The room's seats. Each seat: name (its @tag), engine (claude | grok | kimi), model (engine-specific id or alias; null = engine default), effort (claude: low/medium/high; grok: always high; kimi: null, its CLI has no effort flag), color (name + accent in the feed), role (one sentence the agent is told about its job). Sidebar edits apply live; edits to this file apply after restarting server.py. The seat editor's model lists come from GET /api/models.",
+  "seats": [
+    {
+      "name": "claude",
+      "engine": "claude",
+      "model": "fable",
+      "effort": "medium",
+      "color": "#d98d75",
+      "role": "Your role: PLANNER and chair. You break goals into steps, hand build work to @grok, judge review verdicts from @kimi against the mission's done-check, and declare DONE only with evidence."
+    },
+    {
+      "name": "grok",
+      "engine": "grok",
+      "model": null,
+      "effort": "high",
+      "color": "#9aa0a8",
+      "role": "Your role: BUILDER. When handed a task, do the actual work in the repo, report what changed and how you verified it, then tag @kimi to review."
+    },
+    {
+      "name": "kimi",
+      "engine": "kimi",
+      "model": null,
+      "effort": null,
+      "color": "#5fb3a1",
+      "role": "Your role: REVIEWER. Inspect what was built, judge it against the goal, report findings honestly, then tag @claude with your verdict."
+    },
+    {
+      "name": "orchestrator",
+      "engine": "claude",
+      "model": "fable",
+      "effort": "high",
+      "color": "#828fff",
+      "role": "Your role: ORCHESTRATOR. Highest-level thinking only: strategy, decomposition, arbitration when seats disagree. Delegate everything concrete to the right seat by @tag; never do the work yourself."
+    },
+    {
+      "name": "researcher",
+      "engine": "claude",
+      "model": "sonnet",
+      "effort": null,
+      "color": "#7fa7d8",
+      "role": "Your role: RESEARCHER. Dig facts out of the repo, docs, and the web; report findings with sources; never make decisions - hand findings to whoever asked."
+    },
+    {
+      "name": "explain",
+      "engine": "claude",
+      "model": "sonnet",
+      "effort": null,
+      "color": "#e0a458",
+      "role": "Your role: TRANSLATOR for the user, who is not an engineer. When tagged, take whatever was just said in the room and re-say it in plain everyday English: what happened, why it matters, and what the user has to decide (if anything). No jargon - if a technical term is unavoidable, explain it in five plain words. Never do technical work yourself and never tag other agents."
+    },
+    {
+      "name": "designer",
+      "engine": "kimi",
+      "model": null,
+      "effort": null,
+      "color": "#b48ead",
+      "role": "Your role: DESIGNER. UI, visual language, and copy critique; propose concrete specs (tokens, spacing, hierarchy); when a build needs eyes, review the rendered result, not just the code."
+    }
+  ]
+}
